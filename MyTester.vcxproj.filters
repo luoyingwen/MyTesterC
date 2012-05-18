@@ -51,11 +51,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Manifest Include="MyTester.manifest">
-      <Filter>3-Source Files</Filter>
-    </Manifest>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="MyTester.ico">
       <Filter>2-Resource Files</Filter>
     </None>
@@ -68,5 +63,10 @@
     <ResourceCompile Include="MyTester.rc">
       <Filter>2-Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="MyTester.manifest">
+      <Filter>2-Resource Files</Filter>
+    </Manifest>
   </ItemGroup>
 </Project>
