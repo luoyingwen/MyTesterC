@@ -143,7 +143,7 @@ void LogMessage(const TCHAR* _Format, ...)
 	LogStringMessage(szLine);
 }
 
-void CALLBACK LogMessageTimerProc(HWND hwnd, UINT message, UINT idTimer, DWORD dwTime)
+VOID CALLBACK LogMessageTimerProc(HWND hwnd, UINT message, UINT_PTR idTimer, DWORD dwTime)
 {
 	if(g_szLogBuffer != NULL)
 	{

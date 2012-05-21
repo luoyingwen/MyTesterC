@@ -15,6 +15,9 @@
     <Filter Include="1-Common Header">
       <UniqueIdentifier>{c99cd511-09fa-4534-a081-5019054e9db8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="4-TestCategory\TestItems">
+      <UniqueIdentifier>{fb007be3-adfb-45bf-a809-9c6a4f6fe901}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MyTester.cpp">
@@ -28,6 +31,9 @@
     </ClCompile>
     <ClCompile Include="TestTemplate.cpp">
       <Filter>4-TestCategory</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestCreateActiveUserApp.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
