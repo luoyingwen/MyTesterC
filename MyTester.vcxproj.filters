@@ -35,6 +35,15 @@
     <ClCompile Include="TestItmes\TestCreateActiveUserApp.cpp">
       <Filter>4-TestCategory\TestItems</Filter>
     </ClCompile>
+    <ClCompile Include="TestItmes\TestSetWindowsHook.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestReceiveShellHookMsg.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestGetParentProcessId.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyTester.h">

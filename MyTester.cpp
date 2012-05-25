@@ -5,8 +5,9 @@
 #include "Common.h"
 #include <ole2.h>
 
+
 #define TIMER_ID 1
-#define TIMER_TIME_LOGMESSAGE 400 //million seconds
+#define TIMER_TIME_LOGMESSAGE 200 //million seconds
 #define MAX_LOG_TEXT 1024*1024
 TCHAR* g_szLogBuffer = NULL;
 CRITICAL_SECTION g_Critecal_Sec;
@@ -15,7 +16,6 @@ CCommand* g_pCommandListHead = NULL;
 HWND g_hwndMainDlg = NULL;
 
 #pragma comment(lib, "comctl32.lib")
-
 // Forward declarations of functions included in this code module:
 INT_PTR CALLBACK	Dlg_Proc(HWND, UINT, WPARAM, LPARAM);
 int APIENTRY _tWinMain(HINSTANCE hInstance,
@@ -26,9 +26,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
 	UNREFERENCED_PARAMETER(nCmdShow);
-	
-	TheLogger.Open(_T("MyTesterLog.log"), DebugLevel);
 
+	TheLogger.Open(_T("MyTesterLog.log"), DebugLevel);
 	OleInitialize(NULL);
 	InitCommonControls();
 	LoadLibrary(L"Riched20.dll");
@@ -142,6 +141,7 @@ void LogMessage(const TCHAR* _Format, ...)
 
 	LogStringMessage(szLine);
 }
+
 
 VOID CALLBACK LogMessageTimerProc(HWND hwnd, UINT message, UINT_PTR idTimer, DWORD dwTime)
 {

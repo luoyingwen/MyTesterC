@@ -42,4 +42,5 @@
 using namespace Common;
 //define Log file
 __declspec(selectany) Logger TheLogger;
+extern HWND g_hwndMainDlg;
 
