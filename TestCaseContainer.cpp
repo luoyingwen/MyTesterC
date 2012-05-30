@@ -9,5 +9,7 @@ COMMAND_DEFINE(Test, TestUninstallHook);
 COMMAND_DEFINE(Test, TestSendMessage);
 COMMAND_DEFINE(Test, TestCreateRemoteThread);
 COMMAND_DEFINE(Test, TestReceiveShellHookMsg);
+COMMAND_DEFINE(Test, TestGetWindowInfo);
+COMMAND_DEFINE(Test, TestHideNavigationWnd);
 
 

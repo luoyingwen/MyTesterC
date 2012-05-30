@@ -3,18 +3,11 @@
 
 #include <windows.h> 
  
-// Global variable 
- 
-HINSTANCE hinst; 
 UINT WM_SHELLHOOKMESSAGE = 0;
 const UINT WM_HOOK_MSG = WM_APP + 0x40;
 static bool g_sendHookMsg = false;
 HANDLE s_hThread = NULL;
 const DWORD CHECK_TIME_INTERVAL = 10*1000;
-// Function prototypes. 
- 
-BOOL InitApplication(HINSTANCE); 
-BOOL InitInstance(HINSTANCE); 
 
 void ShowWindowInfo(HWND hWnd)
 {

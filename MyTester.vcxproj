@@ -538,6 +538,7 @@
     <ClCompile Include="TestCaseContainer.cpp" />
     <ClCompile Include="TestItmes\TestCreateActiveUserApp.cpp" />
     <ClCompile Include="TestItmes\TestGetParentProcessId.cpp" />
+    <ClCompile Include="TestItmes\TestGetWindowInfo.cpp" />
     <ClCompile Include="TestItmes\TestReceiveShellHookMsg.cpp" />
     <ClCompile Include="TestItmes\TestSetWindowsHook.cpp" />
     <ClCompile Include="TestTemplate.cpp" />
