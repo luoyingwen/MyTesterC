@@ -2,6 +2,7 @@
 #include "Common.h"
 
 #include <windows.h> 
+#include <Dbt.h>
  
 UINT WM_SHELLHOOKMESSAGE = 0;
 const UINT WM_HOOK_MSG = WM_APP + 0x40;
@@ -82,7 +83,7 @@ VOID SwitchToCurrentApp()
 
 LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	if (message != 0 && message == WM_SHELLHOOKMESSAGE)
+	if (message == WM_SHELLHOOKMESSAGE)
 	{
 		if (wParam == HSHELL_WINDOWACTIVATED)
 		{
@@ -116,6 +117,11 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
 		}
 		return (INT_PTR)FALSE;
 	}
+	else if (message == WM_DEVICECHANGE)
+	{
+		LogMessage(L"WM_DEVICECHANGE");
+		return (INT_PTR)FALSE;
+	}
 	else
 	{
 		return DefWindowProc(hWnd,message,wParam,lParam);
@@ -136,6 +142,8 @@ DWORD WINAPI MyThreadFunction( LPVOID lpParam )
 		SwitchToCurrentApp();
 	}
 }
+DEFINE_GUID(GUID_DEVINTERFACE_USB_DEVICE, 0xA5DCBF10L, 0x6530, 0x11D2, 0x90, 0x1F, 0x00, \
+             0xC0, 0x4F, 0xB9, 0x51, 0xED);
 
 void TestReceiveShellHookMsg(const TCHAR* szParam)
 {
@@ -169,6 +177,18 @@ void TestReceiveShellHookMsg(const TCHAR* szParam)
 			LogMessage(L"RegisterShellHookWindow return faled. LastError=%d", ::GetLastError());
 		}
 	}
+
+	DEV_BROADCAST_DEVICEINTERFACE NotificationFilter;
+	ZeroMemory(&NotificationFilter, sizeof(NotificationFilter));
+
+	NotificationFilter.dbcc_size = sizeof(NotificationFilter);
+	NotificationFilter.dbcc_devicetype = DBT_DEVTYP_DEVICEINTERFACE;
+	NotificationFilter.dbcc_reserved = 0;
+
+	//NotificationFilter.dbcc_classguid = GUID_DEVINTERFACE_USB_DEVICE;
+	CLSIDFromString(L"{A5DCBF10-6530-11D2-901F-00C04FB951ED}", &NotificationFilter.dbcc_classguid);
+
+	HDEVNOTIFY hDevNotify = RegisterDeviceNotification(hWnd, &NotificationFilter, DEVICE_NOTIFY_WINDOW_HANDLE);
 
 	DWORD dwThreadId = 0;
 	s_hThread = CreateThread( 
