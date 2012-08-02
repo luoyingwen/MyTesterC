@@ -7,12 +7,13 @@ typedef int (WINAPI *PFN_INSTALLAPPHOOK)(DWORD);
 
 HMODULE s_hmodHookTool = NULL;
 
+const wchar_t* HOOKDLLPATH = L"D:\\luoyw\\work\\source\\Aries\\Alpha\\Src\\WinIntegration\\x64\\Debug\\WinIntegration.dll";
 
 void TestInstallHook(const TCHAR* szParam)
 {
 	if (NULL == s_hmodHookTool)
 	{
-		s_hmodHookTool = ::LoadLibrary( L"ExplorerMsgHook.dll" );
+		s_hmodHookTool = ::LoadLibrary(HOOKDLLPATH);
 		if (NULL != s_hmodHookTool)
 		{
 			PFN_INSTALLHOOK s_pfnInstallHook = NULL;
@@ -33,7 +34,7 @@ void TestInstallHook(const TCHAR* szParam)
 		}
 		else
 		{
-			LogMessage(_T("LoadLibrary ExplorerMsgHook.dll return failed."));
+			LogMessage(_T("LoadLibrary Hook dll(%s) return failed."), HOOKDLLPATH);
 		}
 	}
 }

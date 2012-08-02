@@ -47,6 +47,24 @@
     <ClCompile Include="TestItmes\TestGetWindowInfo.cpp">
       <Filter>4-TestCategory\TestItems</Filter>
     </ClCompile>
+    <ClCompile Include="TestItmes\TestRegisterPointerInputTarget.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestUsbRemoveSafe.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestSensorAPI.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestCreateWindow.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestNetProfiling.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestTimerInterval.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyTester.h">
@@ -66,6 +84,9 @@
     </ClInclude>
     <ClInclude Include="RegKeyUtil.h">
       <Filter>1-Common Header</Filter>
+    </ClInclude>
+    <ClInclude Include="TestItmes\DesktopMgr.h">
+      <Filter>4-TestCategory\TestItems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -349,7 +349,7 @@
       <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <StructMemberAlignment>Default</StructMemberAlignment>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
@@ -537,10 +537,16 @@
     </ClCompile>
     <ClCompile Include="TestCaseContainer.cpp" />
     <ClCompile Include="TestItmes\TestCreateActiveUserApp.cpp" />
+    <ClCompile Include="TestItmes\TestCreateWindow.cpp" />
     <ClCompile Include="TestItmes\TestGetParentProcessId.cpp" />
     <ClCompile Include="TestItmes\TestGetWindowInfo.cpp" />
+    <ClCompile Include="TestItmes\TestNetProfiling.cpp" />
     <ClCompile Include="TestItmes\TestReceiveShellHookMsg.cpp" />
+    <ClCompile Include="TestItmes\TestRegisterPointerInputTarget.cpp" />
+    <ClCompile Include="TestItmes\TestSensorAPI.cpp" />
     <ClCompile Include="TestItmes\TestSetWindowsHook.cpp" />
+    <ClCompile Include="TestItmes\TestTimerInterval.cpp" />
+    <ClCompile Include="TestItmes\TestUsbRemoveSafe.cpp" />
     <ClCompile Include="TestTemplate.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -550,6 +556,7 @@
     <ClInclude Include="Common.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="RegKeyUtil.h" />
+    <ClInclude Include="TestItmes\DesktopMgr.h" />
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="MyTester.manifest" />

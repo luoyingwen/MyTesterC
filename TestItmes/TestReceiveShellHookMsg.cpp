@@ -3,6 +3,7 @@
 
 #include <windows.h> 
 #include <Dbt.h>
+#include <atlcom.h>
  
 UINT WM_SHELLHOOKMESSAGE = 0;
 const UINT WM_HOOK_MSG = WM_APP + 0x40;
@@ -24,17 +25,22 @@ void ShowWindowInfo(HWND hWnd)
 
 	DWORD dwProcessId = 0;
 	DWORD dwThreadId = :: GetWindowThreadProcessId(hWnd, &dwProcessId);
-	LogMessage(L"hWnd=%d, threadId=%d, processId=%d", dwThreadId, dwProcessId);
+	LogMessage(L"hWnd=%d, threadId=%d, processId=%d", hWnd, dwThreadId, dwProcessId);
 }
 
-bool IsMetroMainUi(HWND hWnd)
+bool IsWindowBelongExplorer(HWND hWnd)
 {
 	if (hWnd == NULL)
 		return false;
 
-	TCHAR szClassName[MAX_PATH];
-	RealGetWindowClass(hWnd, szClassName, MAX_PATH);
-	return _wcsicmp(szClassName, L"ImmersiveLauncher") == 0;
+	DWORD dwForegroundProcessId = 0;
+	::GetWindowThreadProcessId(hWnd, &dwForegroundProcessId);
+	TheLogger.Debug(L"dwForegroundProcessId = %d", dwForegroundProcessId);
+
+	DWORD dwExplorerProcessId = 0;
+	::GetWindowThreadProcessId(GetShellWindow(), &dwExplorerProcessId);
+	TheLogger.Debug(L"dwExplorerProcessId = %d", dwExplorerProcessId);
+	return dwExplorerProcessId == dwForegroundProcessId;
 }
 
 VOID SwitchToCurrentApp()
@@ -52,7 +58,7 @@ VOID SwitchToCurrentApp()
 
 	LogMessage(L"\nLog Foreground:");
 	ShowWindowInfo(hWnd);
-	if (IsMetroMainUi(hWnd))
+	if (IsWindowBelongExplorer(hWnd))
 	{
 		LogMessage(L"Switch now");
 		::PostMessage(GetShellWindow(), WM_HOOK_MSG, (WPARAM)g_hwndMainDlg, 0);
@@ -89,16 +95,16 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
 		{
 			LogMessage(L"HSHELL_WINDOWACTIVATED");
 			ShowWindowInfo((HWND)lParam);
-			//if ( IsMetroMainUi((HWND)lParam))
-			//{
-			//	::PostMessage(GetShellWindow(), WM_HOOK_MSG, (WPARAM)g_hwndMainDlg, 0);
-			//}
+			if ( IsWindowBelongExplorer((HWND)lParam))
+			{
+				::PostMessage(GetShellWindow(), WM_HOOK_MSG, (WPARAM)g_hwndMainDlg, 0);
+			}
 		}
 		else if (wParam == HSHELL_RUDEAPPACTIVATED)
 		{
 			LogMessage(L"HSHELL_RUDEAPPACTIVATED");
 			ShowWindowInfo((HWND)lParam);
-			if ( IsMetroMainUi((HWND)lParam) && g_sendHookMsg)
+			if ( IsWindowBelongExplorer((HWND)lParam) && g_sendHookMsg)
 			{
 				g_sendHookMsg = false;
 				LogMessage(L"Switch now");
@@ -119,7 +125,25 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
 	}
 	else if (message == WM_DEVICECHANGE)
 	{
-		LogMessage(L"WM_DEVICECHANGE");
+		if (wParam == DBT_DEVICEARRIVAL)
+		{			
+			PDEV_BROADCAST_HDR header = (PDEV_BROADCAST_HDR)lParam;
+			LogMessage(L"Usb Insert. devicetype=%d", header->dbch_devicetype);
+			if (header->dbch_devicetype == DBT_DEVTYP_VOLUME)
+			{
+				PDEV_BROADCAST_VOLUME volume = (PDEV_BROADCAST_VOLUME)lParam;
+				LogMessage(L"Drive letter. %x", volume->dbcv_unitmask);
+			}
+			else if (header->dbch_devicetype == DBT_DEVTYP_DEVICEINTERFACE)
+			{
+				PDEV_BROADCAST_DEVICEINTERFACE pInterface = (PDEV_BROADCAST_DEVICEINTERFACE)lParam;
+				LogMessage(L"Drive name. %s", pInterface->dbcc_name);
+			}
+		}
+		else if (wParam == DBT_DEVICEREMOVECOMPLETE)
+		{
+			LogMessage(L"Usb Remove");
+		}
 		return (INT_PTR)FALSE;
 	}
 	else
@@ -139,7 +163,7 @@ DWORD WINAPI MyThreadFunction( LPVOID lpParam )
     while (true)
 	{
 		::Sleep(CHECK_TIME_INTERVAL);
-		SwitchToCurrentApp();
+		//SwitchToCurrentApp();
 	}
 }
 DEFINE_GUID(GUID_DEVINTERFACE_USB_DEVICE, 0xA5DCBF10L, 0x6530, 0x11D2, 0x90, 0x1F, 0x00, \
@@ -189,19 +213,6 @@ void TestReceiveShellHookMsg(const TCHAR* szParam)
 	CLSIDFromString(L"{A5DCBF10-6530-11D2-901F-00C04FB951ED}", &NotificationFilter.dbcc_classguid);
 
 	HDEVNOTIFY hDevNotify = RegisterDeviceNotification(hWnd, &NotificationFilter, DEVICE_NOTIFY_WINDOW_HANDLE);
-
-	DWORD dwThreadId = 0;
-	s_hThread = CreateThread( 
-            NULL,                   // default security attributes
-            0,                      // use default stack size  
-            MyThreadFunction,       // thread function name
-            NULL,          // argument to thread function 
-            0,                      // use default creation flags 
-            &dwThreadId);   // returns the thread identifier 
-	if (s_hThread == NULL)
-	{
-		LogMessage(L"CreateThread return failed. error=%d", ::GetLastError());
-	}
 
 	LogStringMessage(L"Hello world.");
 }
