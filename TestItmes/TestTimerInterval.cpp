@@ -67,7 +67,6 @@ void TestPostTimerMsg(const TCHAR* szParam)
 {
 	if (szParam == NULL || _tcslen(szParam) <= 0)
 	{
-		TheLogger.SetAutoNewLineForLog(false);
 		TheLogger.Debug(L"Please Input Windows Handle.");
 		TheLogger.Debug(L"Please Input Windows Handle.\r\n");
 		return;

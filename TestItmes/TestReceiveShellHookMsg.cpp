@@ -18,10 +18,16 @@ void ShowWindowInfo(HWND hWnd)
 		LogStringMessage(L"ShowWindowInfo hWnd = NULL");
 		return;
 	}
+	CTime now = CTime::GetCurrentTime();
+	CString formatStr = now.Format(_T("%H:%M:%S %Y%m%d"));
+	LogMessage(formatStr);
+		
+	TCHAR szTextBuf[MAX_PATH];
+	RealGetWindowClass(hWnd, szTextBuf, MAX_PATH);
+	LogStringMessage(szTextBuf);
 
-	TCHAR szClassName[MAX_PATH];
-	RealGetWindowClass(hWnd, szClassName, MAX_PATH);
-	LogStringMessage(szClassName);
+	GetWindowText(hWnd, szTextBuf, MAX_PATH);
+	LogStringMessage(szTextBuf);
 
 	DWORD dwProcessId = 0;
 	DWORD dwThreadId = :: GetWindowThreadProcessId(hWnd, &dwProcessId);
@@ -35,11 +41,11 @@ bool IsWindowBelongExplorer(HWND hWnd)
 
 	DWORD dwForegroundProcessId = 0;
 	::GetWindowThreadProcessId(hWnd, &dwForegroundProcessId);
-	TheLogger.Debug(L"dwForegroundProcessId = %d", dwForegroundProcessId);
+	//TheLogger.Debug(L"dwForegroundProcessId = %d", dwForegroundProcessId);
 
 	DWORD dwExplorerProcessId = 0;
 	::GetWindowThreadProcessId(GetShellWindow(), &dwExplorerProcessId);
-	TheLogger.Debug(L"dwExplorerProcessId = %d", dwExplorerProcessId);
+	//TheLogger.Debug(L"dwExplorerProcessId = %d", dwExplorerProcessId);
 	return dwExplorerProcessId == dwForegroundProcessId;
 }
 
@@ -121,6 +127,23 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
 			LogMessage(L"HSHELL_WINDOWREPLACED");
 			ShowWindowInfo((HWND)lParam);
 		}
+		else if (wParam == HSHELL_REDRAW)
+		{
+			LogMessage(L"HSHELL_REDRAW wParam=%x", wParam);
+			ShowWindowInfo((HWND)lParam);
+		}
+		else if (wParam == HSHELL_FLASH)
+		{
+			LogMessage(L"HSHELL_REDRAW. wParam=%x", wParam);
+			ShowWindowInfo((HWND)lParam);
+		}
+		else
+		{
+			LogMessage(L"Unknown Shell hook message. wParam=%x", wParam);
+			ShowWindowInfo((HWND)lParam);
+		}
+		
+		LogMessage(L"\r\n\r\n");
 		return (INT_PTR)FALSE;
 	}
 	else if (message == WM_DEVICECHANGE)
