@@ -42,3 +42,7 @@ public:
 
 void LogStringMessage(const TCHAR* szMsg);
 void LogMessage(const TCHAR* _Format,...);
+
+#define WIDEN2(x) L ## x
+#define WIDEN(x) WIDEN2(x)
+#define __WFILE__ WIDEN(__FILE__)

@@ -3,5 +3,6 @@
 
 void TestTemplate(const TCHAR* szParam)
 {
-	LogStringMessage(L"Hello world.");
+	LogStringMessage(__WFILE__);
 }
+COMMAND_DEFINE(Test, TestTemplate);

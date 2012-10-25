@@ -62,7 +62,28 @@
     <ClCompile Include="TestItmes\TestNetProfiling.cpp">
       <Filter>4-TestCategory\TestItems</Filter>
     </ClCompile>
-    <ClCompile Include="TestItmes\TestTimerInterval.cpp">
+    <ClCompile Include="TestFileBackup.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestSendInputHotKey.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestShowTextPanelButton.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestAppBar.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestRunAsExplorer.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestVolumeUpAndDown.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestLaunchIEMax.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestShutdown.cpp">
       <Filter>4-TestCategory\TestItems</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,6 +107,9 @@
       <Filter>1-Common Header</Filter>
     </ClInclude>
     <ClInclude Include="TestItmes\DesktopMgr.h">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClInclude>
+    <ClInclude Include="TestItmes\UsbDriveEjector.h">
       <Filter>4-TestCategory\TestItems</Filter>
     </ClInclude>
   </ItemGroup>

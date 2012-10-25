@@ -4,6 +4,7 @@
 #include <windows.h> 
 #include <Dbt.h>
 #include <atlcom.h>
+#include <Shlobj.h>
  
 UINT WM_SHELLHOOKMESSAGE = 0;
 const UINT WM_HOOK_MSG = WM_APP + 0x40;
@@ -148,6 +149,8 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
 	}
 	else if (message == WM_DEVICECHANGE)
 	{
+		LogMessage(L"WM_DEVICECHANGE. type=%x", wParam);
+
 		if (wParam == DBT_DEVICEARRIVAL)
 		{			
 			PDEV_BROADCAST_HDR header = (PDEV_BROADCAST_HDR)lParam;
@@ -169,6 +172,10 @@ LRESULT CALLBACK MainWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
 		}
 		return (INT_PTR)FALSE;
 	}
+	else if (message == WM_HOTKEY)
+	{
+		LogMessage(L"WM_HOTKEY");
+	}
 	else
 	{
 		return DefWindowProc(hWnd,message,wParam,lParam);
@@ -189,9 +196,11 @@ DWORD WINAPI MyThreadFunction( LPVOID lpParam )
 		//SwitchToCurrentApp();
 	}
 }
-DEFINE_GUID(GUID_DEVINTERFACE_USB_DEVICE, 0xA5DCBF10L, 0x6530, 0x11D2, 0x90, 0x1F, 0x00, \
-             0xC0, 0x4F, 0xB9, 0x51, 0xED);
-
+//DEFINE_GUID(GUID_DEVINTERFACE_USB_DEVICE, 0xA5DCBF10L, 0x6530, 0x11D2, 0x90, 0x1F, 0x00, \
+//             0xC0, 0x4F, 0xB9, 0x51, 0xED);
+//{53f56307-b6bf-11d0-94f2-00a0c91efb8b}
+DEFINE_GUID(GUID_DEVINTERFACE_USB_DEVICE, 0x53f56307L, 0xb6bf, 0x11d0, 0x94, 0xf2, 0x00, \
+             0xa0, 0xc9, 0x1e, 0xfb, 0x8b);//disk
 void TestReceiveShellHookMsg(const TCHAR* szParam)
 {
 	if (s_hThread != NULL)
@@ -199,6 +208,9 @@ void TestReceiveShellHookMsg(const TCHAR* szParam)
 		LogMessage(L"thread already is running");
 		return;
 	}
+	wchar_t path[MAX_PATH];
+	SHGetSpecialFolderPath(NULL, path, CSIDL_COMMON_APPDATA, FALSE);
+	LogMessage(path);
 	WNDCLASS wc      = {0}; 
 	wc.lpfnWndProc   = MainWndProc;
 	wc.hInstance     = ModuleFromAddress(TestReceiveShellHookMsg);
@@ -212,18 +224,20 @@ void TestReceiveShellHookMsg(const TCHAR* szParam)
         return; 
 	}
 
-	WM_SHELLHOOKMESSAGE = RegisterWindowMessage(_T("SHELLHOOK"));
-	if (WM_SHELLHOOKMESSAGE == 0)
-	{
-		LogMessage(L"RegisterWindowMessage return faled. LastError=%d", ::GetLastError());
-	}
-	else
-	{
-		if (!RegisterShellHookWindow(hWnd))
-		{
-			LogMessage(L"RegisterShellHookWindow return faled. LastError=%d", ::GetLastError());
-		}
-	}
+	::RegisterHotKey(hWnd, 1, 0, VK_VOLUME_UP);
+
+	//WM_SHELLHOOKMESSAGE = RegisterWindowMessage(_T("SHELLHOOK"));
+	//if (WM_SHELLHOOKMESSAGE == 0)
+	//{
+	//	LogMessage(L"RegisterWindowMessage return faled. LastError=%d", ::GetLastError());
+	//}
+	//else
+	//{
+	//	if (!RegisterShellHookWindow(hWnd))
+	//	{
+	//		LogMessage(L"RegisterShellHookWindow return faled. LastError=%d", ::GetLastError());
+	//	}
+	//}
 
 	DEV_BROADCAST_DEVICEINTERFACE NotificationFilter;
 	ZeroMemory(&NotificationFilter, sizeof(NotificationFilter));
