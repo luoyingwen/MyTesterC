@@ -4,11 +4,12 @@
 #include <windows.h> 
  
 static HANDLE s_hThread = NULL;
-const DWORD CHECK_TIME_INTERVAL = 1*1000;
+const DWORD CHECK_TIME_INTERVAL = 10*1000;
 const wchar_t* NAVIGATION_CLASS_NAME = L"NativeHWNDHost";
 const wchar_t* DATE_TIME_CLASS_NAME = L"DirectUIHWND";
 const wchar_t* NAVIGATION_WINDOW_TEXT = L"Charm Bar";
 const wchar_t* DATE_TIME_WINDOW_TEXT = L"";
+const wchar_t* METRO_UI_CLASS_NAME = L"ImmersiveLauncher";
 
 static void ShowWindowInfo(HWND hWnd)
 {
@@ -50,8 +51,8 @@ static DWORD WINAPI MyThreadFunction( LPVOID lpParam )
     while (true)
 	{
 		::Sleep(CHECK_TIME_INTERVAL);
-			HWND hwnd = FindWindow(DATE_TIME_CLASS_NAME,DATE_TIME_WINDOW_TEXT);
-	ShowWindowInfo(hwnd);
+			//HWND hwnd = FindWindow(DATE_TIME_CLASS_NAME,DATE_TIME_WINDOW_TEXT);
+	ShowWndInfo();
 	}
 }
 
@@ -86,3 +87,5 @@ void TestHideNavigationWnd(const TCHAR* szParam)
 	HWND hwnd = FindWindow(DATE_TIME_CLASS_NAME,DATE_TIME_WINDOW_TEXT);
 	ShowWindowInfo(hwnd);
 }
+
+COMMAND_DEFINE(Test, TestGetWindowInfo);

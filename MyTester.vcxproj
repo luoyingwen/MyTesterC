@@ -536,57 +536,95 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_X64|Itanium'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TestCaseContainer.cpp" />
-    <ClCompile Include="TestFileBackup.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="TestItmes\TestAppBar.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestChangeLogLeveDynamically.cpp" />
+    <ClCompile Include="TestItmes\TestCheckSSD.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="TestItmes\TestCreateActiveUserApp.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="TestItmes\TestCreateWindow.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="TestItmes\TestEventSecurity.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestFileBackup.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestGetAsynKeyState.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestGetModuleVirtualAddress.cpp" />
     <ClCompile Include="TestItmes\TestGetParentProcessId.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="TestItmes\TestGetWindowInfo.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="TestItmes\TestLaunchIEMax.cpp" />
+    <ClCompile Include="TestItmes\TestLaunchIEMax.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="TestItmes\TestNetProfiling.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestReadUnicodeFile.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="TestItmes\TestReceiveShellHookMsg.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="TestItmes\TestRegisterPointerInputTarget.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="TestItmes\TestRunAsExplorer.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="TestItmes\TestSendInputHotKey.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="TestItmes\TestSensorAPI.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="TestItmes\TestSetWindowsHook.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="TestItmes\TestShowTextPanelButton.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="TestItmes\TestShutdown.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestSoftKeyboard.cpp" />
     <ClCompile Include="TestItmes\TestUsbRemoveSafe.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="TestItmes\TestVolumeUpAndDown.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="TestShutdown.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="TestTemplate.cpp" />
   </ItemGroup>
@@ -604,6 +642,7 @@
     <Manifest Include="MyTester.manifest" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="keyboard.bmp" />
     <None Include="MyTester.ico" />
     <None Include="small.ico" />
     <None Include="ReadMe.txt" />

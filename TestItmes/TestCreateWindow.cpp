@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Common.h"
 #include <gdiplus.h>
+#include "d:\luoyw\work\shellperf\AriesNew\Alpha\Src\WatcherService\BackgroundWindowImpl.h"
 using namespace Gdiplus;
 
 #pragma comment(lib, "Gdiplus.lib")
@@ -14,22 +15,7 @@ static HMODULE ModuleFromAddress(PVOID pv)
 
 static DWORD WINAPI MonitorProc(_In_ void* pv) throw()
 {
-	HBITMAP bmp;
-
-	GdiplusStartupInput gdiplusStartupInput;
-	ULONG_PTR gdiplusToken;
-	GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
-
-	Bitmap* image = new Bitmap(L"D:\\luoyw\\work\\checkinsource\\Aries\\Alpha\\Src\\Resources\\PolarLights\\Images\\background.png");
-	Gdiplus::Color clr(0xFF,0xFF,0xFF);	
-	image->GetHBITMAP(clr, &bmp);
-		
-	delete image;
-	GdiplusShutdown(gdiplusToken);
-
-	HWND hTarget = CreateWindowEx(WS_EX_NOACTIVATE, L"STATIC", L"", WS_POPUP | WS_BORDER | SS_BITMAP, -1,-1, 1920, 1080, NULL, NULL, ModuleFromAddress(MonitorProc), NULL);
-	::SendMessage(hTarget, STM_SETIMAGE, (WPARAM)IMAGE_BITMAP,(LPARAM)bmp);
-	::ShowWindow(hTarget, SW_SHOW);
+	BackgroundWindowImpl::Instance()->Create();
 		
 	MSG msg; 
 	while (true) 
@@ -95,5 +81,5 @@ void TestDecodePng(const TCHAR* szParam)
 {
 	HBITMAP bitmap = CreateBitmap();
 	LogMessage(L"CreateBitmap return hbitmap = %d", bitmap);
-	
 }
+COMMAND_DEFINE(Test, TestCreateWindow);

@@ -26,6 +26,9 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
 	UNREFERENCED_PARAMETER(nCmdShow);
+	
+	memset(&g_Critecal_Sec, 0, sizeof(CRITICAL_SECTION));
+	InitializeCriticalSection(&g_Critecal_Sec);
 
 	TheLogger.Open(_T("MyTesterLog.log"), DebugLevel);
 	OleInitialize(NULL);
@@ -170,9 +173,6 @@ BOOL Dlg_OnInitDialog(HWND hwndDlg, HWND hwndFocus, LPARAM lParam)
 	//set text limit
 	HWND hwndEditLog = GetDlgItem(hwndDlg,IDC_EDIT_LOGS);
 	::SendMessage(hwndEditLog, EM_SETLIMITTEXT, MAX_LOG_TEXT, 0);
-
-	memset(&g_Critecal_Sec, 0, sizeof(CRITICAL_SECTION));
-	InitializeCriticalSection(&g_Critecal_Sec);
 
 	SetTimer(hwndDlg, TIMER_ID, TIMER_TIME_LOGMESSAGE, LogMessageTimerProc);
 	return TRUE;

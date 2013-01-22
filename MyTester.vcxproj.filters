@@ -62,9 +62,6 @@
     <ClCompile Include="TestItmes\TestNetProfiling.cpp">
       <Filter>4-TestCategory\TestItems</Filter>
     </ClCompile>
-    <ClCompile Include="TestFileBackup.cpp">
-      <Filter>4-TestCategory\TestItems</Filter>
-    </ClCompile>
     <ClCompile Include="TestItmes\TestSendInputHotKey.cpp">
       <Filter>4-TestCategory\TestItems</Filter>
     </ClCompile>
@@ -83,7 +80,31 @@
     <ClCompile Include="TestItmes\TestLaunchIEMax.cpp">
       <Filter>4-TestCategory\TestItems</Filter>
     </ClCompile>
-    <ClCompile Include="TestShutdown.cpp">
+    <ClCompile Include="TestItmes\TestFileBackup.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestShutdown.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestEventSecurity.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestGetAsynKeyState.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestGetModuleVirtualAddress.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestReadUnicodeFile.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestSoftKeyboard.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestCheckSSD.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\TestChangeLogLeveDynamically.cpp">
       <Filter>4-TestCategory\TestItems</Filter>
     </ClCompile>
   </ItemGroup>
@@ -121,6 +142,9 @@
       <Filter>2-Resource Files</Filter>
     </None>
     <None Include="ReadMe.txt" />
+    <None Include="keyboard.bmp">
+      <Filter>2-Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MyTester.rc">
