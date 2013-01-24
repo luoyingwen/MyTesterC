@@ -253,3 +253,5 @@ void TestReceiveShellHookMsg(const TCHAR* szParam)
 
 	LogStringMessage(L"Hello world.");
 }
+
+COMMAND_DEFINE(Test, TestReceiveShellHookMsg);

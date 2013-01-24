@@ -587,7 +587,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="TestItmes\TestReceiveShellHookMsg.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="TestItmes\TestRegisterPointerInputTarget.cpp">
@@ -612,12 +611,15 @@
     </ClCompile>
     <ClCompile Include="TestItmes\TestShowTextPanelButton.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="TestItmes\TestShutdown.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="TestItmes\TestSoftKeyboard.cpp" />
+    <ClCompile Include="TestItmes\TestSoftKeyboard.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="TestItmes\TestUsbRemoveSafe.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_X64|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_X64|x64'">true</ExcludedFromBuild>
