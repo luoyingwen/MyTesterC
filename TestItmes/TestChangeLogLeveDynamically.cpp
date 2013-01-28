@@ -50,8 +50,14 @@ void TestChangeLogLevelToError(const TCHAR* szParam)
 	Logger::ChangeDynamicLogLevel(L"MyTesterLog.log", ErrorLevel);
 }
 
+void TestChangeSpeedWatcherServiceLogLevel(const TCHAR* szParam)
+{
+	Logger::ChangeDynamicLogLevel(L"SpeedWatcherService", DebugLevel);
+}
+
 COMMAND_DEFINE(Test, TestChangeLogLevel);
 COMMAND_DEFINE(Test, TestShowAllLevelLog);
 COMMAND_DEFINE(Test, TestChangeLogLevelToDebug);
 COMMAND_DEFINE(Test, TestChangeLogLevelToWarn);
 COMMAND_DEFINE(Test, TestChangeLogLevelToError);
+COMMAND_DEFINE(Test, TestChangeSpeedWatcherServiceLogLevel);
