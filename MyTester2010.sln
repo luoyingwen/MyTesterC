@@ -1,50 +1,25 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31229.75
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MyTester", "MyTester.vcxproj", "{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug_X64|Itanium = Debug_X64|Itanium
-		Debug_X64|Win32 = Debug_X64|Win32
 		Debug_X64|x64 = Debug_X64|x64
-		Debug|Itanium = Debug|Itanium
-		Debug|Win32 = Debug|Win32
-		Debug|x64 = Debug|x64
-		Release_X64|Itanium = Release_X64|Itanium
-		Release_X64|Win32 = Release_X64|Win32
 		Release_X64|x64 = Release_X64|x64
-		Release|Itanium = Release|Itanium
-		Release|Win32 = Release|Win32
-		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Debug_X64|Itanium.ActiveCfg = Debug_X64|Itanium
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Debug_X64|Itanium.Build.0 = Debug_X64|Itanium
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Debug_X64|Win32.ActiveCfg = Debug_X64|Win32
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Debug_X64|Win32.Build.0 = Debug_X64|Win32
 		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Debug_X64|x64.ActiveCfg = Debug_X64|x64
 		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Debug_X64|x64.Build.0 = Debug_X64|x64
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Debug|Itanium.ActiveCfg = Debug|Itanium
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Debug|Itanium.Build.0 = Debug|Itanium
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Debug|Win32.ActiveCfg = Debug|Win32
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Debug|Win32.Build.0 = Debug|Win32
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Debug|x64.ActiveCfg = Debug|Win32
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Debug|x64.Build.0 = Debug|Win32
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Release_X64|Itanium.ActiveCfg = Release_X64|Itanium
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Release_X64|Itanium.Build.0 = Release_X64|Itanium
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Release_X64|Win32.ActiveCfg = Release_X64|Win32
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Release_X64|Win32.Build.0 = Release_X64|Win32
 		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Release_X64|x64.ActiveCfg = Release_X64|x64
 		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Release_X64|x64.Build.0 = Release_X64|x64
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Release|Itanium.ActiveCfg = Release|Itanium
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Release|Itanium.Build.0 = Release|Itanium
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Release|Win32.ActiveCfg = Release|Win32
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Release|Win32.Build.0 = Release|Win32
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Release|x64.ActiveCfg = Release|x64
-		{9677C1F3-5C21-4C86-AFC7-A5DD0DEB635B}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00CB24F8-9A1F-42BA-897F-835A321DED2E}
 	EndGlobalSection
 EndGlobal

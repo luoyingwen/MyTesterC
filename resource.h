@@ -7,7 +7,6 @@
 #define IDD_MYTESTER_DIALOG             102
 #define IDI_MYTESTER                    107
 #define IDI_SMALL                       108
-#define IDB_BITMAP1                     130
 #define IDC_BTN_CLEAR_LOGS              1000
 #define IDC_BTN_EXECUTE                 1001
 #define IDC_EDIT_INPUT_PARAM            1002

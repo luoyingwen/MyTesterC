@@ -64,7 +64,6 @@ END
 // Bitmap
 //
 
-IDB_BITMAP1             BITMAP                  "keyboard.bmp"
 #endif    // Chinese (Simplified, PRC) resources
 /////////////////////////////////////////////////////////////////////////////
 
