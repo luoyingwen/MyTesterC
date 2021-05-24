@@ -545,6 +545,7 @@
     </ClCompile>
     <ClCompile Include="TestCaseContainer.cpp" />
     <ClCompile Include="TestTemplate.cpp" />
+    <ClCompile Include="TestHttps.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyTester.h" />
@@ -554,6 +555,7 @@
     <ClInclude Include="Logger.h" />
     <ClInclude Include="RegKeyUtil.h" />
     <ClInclude Include="TestItmes\DesktopMgr.h" />
+    <ClInclude Include="TestItmes\httpsHeader\OcrVerify.h" />
     <ClInclude Include="TestItmes\UsbDriveEjector.h" />
   </ItemGroup>
   <ItemGroup>

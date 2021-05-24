@@ -32,6 +32,9 @@
     <ClCompile Include="TestTemplate.cpp">
       <Filter>4-TestCategory</Filter>
     </ClCompile>
+    <ClCompile Include="TestHttps.cpp">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyTester.h">
@@ -56,6 +59,9 @@
       <Filter>4-TestCategory\TestItems</Filter>
     </ClInclude>
     <ClInclude Include="TestItmes\UsbDriveEjector.h">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClInclude>
+    <ClInclude Include="TestItmes\httpsHeader\OcrVerify.h">
       <Filter>4-TestCategory\TestItems</Filter>
     </ClInclude>
   </ItemGroup>
