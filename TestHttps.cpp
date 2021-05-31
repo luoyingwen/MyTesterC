@@ -5,7 +5,7 @@
 void TestHttpsRequest(const TCHAR* szParam)
 {
 	LogStringMessage(__WFILE__);
-	if (RequestAccessRight("lOfP5emffSO0Wq7Hxd0Kd7XIBLf8wCri", "LMhc4AzhypKofTbfNDXyYLRp0iKKF8gL", "com.lenovotab.camera"))
+	if (RequestAccessRight("lOfP5emffSO0Wq7Hxd0Kd7XIBLf8wCri", "LMhc4AzhypKofTbfNDXyYLRp0iKKF8gL"))
 	{
 		LogStringMessage(L"Request successfully");
 
@@ -29,5 +29,21 @@ void TestHttpsVerify(const TCHAR* szParam)
 	}
 }
 
+void TestHttpsGetSystemModel(const TCHAR* szParam)
+{
+	LogStringMessage(__WFILE__);
+	CString value;
+	if (QuerySystemModel(value))
+	{
+		const TCHAR* szValue = value;
+		LogMessage(L"System model = %s", szValue);
+	}
+	else
+	{
+		LogStringMessage(L"Query System modle failed");
+	}
+}
+
 COMMAND_DEFINE(Test, TestHttpsRequest); 
-COMMAND_DEFINE(Test, TestHttpsVerify);
+COMMAND_DEFINE(Test, TestHttpsVerify); 
+COMMAND_DEFINE(Test, TestHttpsGetSystemModel);
