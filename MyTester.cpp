@@ -145,6 +145,26 @@ void LogMessage(const TCHAR* _Format, ...)
 	LogStringMessage(szLine);
 }
 
+void LogMessageA(const char* _Format, ...)
+{
+	if (_Format == NULL)
+		return;
+
+	va_list l;
+	va_start(l, _Format);
+
+	char szLine[MAX_PATH + 4];
+	int count = _vsnprintf_s(szLine, MAX_PATH, MAX_PATH - 1, _Format, l);
+	if (count <= 0)
+		strcat_s(szLine, MAX_PATH + 4, "...");
+	else
+		szLine[MAX_PATH] = '\0';
+	va_end(l);
+
+	CString a2w(szLine);
+	LogStringMessage(a2w);
+}
+
 
 VOID CALLBACK LogMessageTimerProc(HWND hwnd, UINT message, UINT_PTR idTimer, DWORD dwTime)
 {
