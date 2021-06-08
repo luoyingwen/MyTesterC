@@ -544,6 +544,13 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release_X64|Itanium'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TestCaseContainer.cpp" />
+    <ClCompile Include="TestItmes\camerabase.cc" />
+    <ClCompile Include="TestItmes\filter_base_win.cc" />
+    <ClCompile Include="TestItmes\pin_base_win.cc" />
+    <ClCompile Include="TestItmes\sink_input_pin_win.cc" />
+    <ClCompile Include="TestItmes\video_capture_device_win.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="TestTemplate.cpp" />
     <ClCompile Include="TestHttps.cpp" />
   </ItemGroup>
@@ -554,9 +561,10 @@
     <ClInclude Include="Common.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="RegKeyUtil.h" />
-    <ClInclude Include="TestItmes\DesktopMgr.h" />
+    <ClInclude Include="TestItmes\camerabase.h" />
     <ClInclude Include="TestItmes\httpsHeader\OcrVerify.h" />
-    <ClInclude Include="TestItmes\UsbDriveEjector.h" />
+    <ClInclude Include="TestItmes\pin_base_win.h" />
+    <ClInclude Include="TestItmes\video_capture_device_win.h" />
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="MyTester.manifest" />

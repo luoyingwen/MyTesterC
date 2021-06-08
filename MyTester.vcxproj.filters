@@ -35,6 +35,21 @@
     <ClCompile Include="TestHttps.cpp">
       <Filter>4-TestCategory\TestItems</Filter>
     </ClCompile>
+    <ClCompile Include="TestItmes\video_capture_device_win.cc">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\camerabase.cc">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\sink_input_pin_win.cc">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\pin_base_win.cc">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\filter_base_win.cc">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyTester.h">
@@ -55,13 +70,16 @@
     <ClInclude Include="RegKeyUtil.h">
       <Filter>1-Common Header</Filter>
     </ClInclude>
-    <ClInclude Include="TestItmes\DesktopMgr.h">
-      <Filter>4-TestCategory\TestItems</Filter>
-    </ClInclude>
-    <ClInclude Include="TestItmes\UsbDriveEjector.h">
-      <Filter>4-TestCategory\TestItems</Filter>
-    </ClInclude>
     <ClInclude Include="TestItmes\httpsHeader\OcrVerify.h">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClInclude>
+    <ClInclude Include="TestItmes\video_capture_device_win.h">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClInclude>
+    <ClInclude Include="TestItmes\camerabase.h">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClInclude>
+    <ClInclude Include="TestItmes\pin_base_win.h">
       <Filter>4-TestCategory\TestItems</Filter>
     </ClInclude>
   </ItemGroup>
