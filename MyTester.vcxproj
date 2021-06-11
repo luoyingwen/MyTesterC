@@ -545,9 +545,13 @@
     </ClCompile>
     <ClCompile Include="TestCaseContainer.cpp" />
     <ClCompile Include="TestItmes\camerabase.cc" />
+    <ClCompile Include="TestItmes\dxgi_device_manager.cc" />
     <ClCompile Include="TestItmes\filter_base_win.cc" />
+    <ClCompile Include="TestItmes\mf_helpers.cc" />
+    <ClCompile Include="TestItmes\mf_initializer.cc" />
     <ClCompile Include="TestItmes\pin_base_win.cc" />
     <ClCompile Include="TestItmes\sink_input_pin_win.cc" />
+    <ClCompile Include="TestItmes\video_capture_device_mf_win.cc" />
     <ClCompile Include="TestItmes\video_capture_device_win.cc">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
     </ClCompile>
@@ -562,8 +566,12 @@
     <ClInclude Include="Logger.h" />
     <ClInclude Include="RegKeyUtil.h" />
     <ClInclude Include="TestItmes\camerabase.h" />
+    <ClInclude Include="TestItmes\dxgi_device_manager.h" />
     <ClInclude Include="TestItmes\httpsHeader\OcrVerify.h" />
+    <ClInclude Include="TestItmes\mf_helpers.h" />
+    <ClInclude Include="TestItmes\mf_initializer.h" />
     <ClInclude Include="TestItmes\pin_base_win.h" />
+    <ClInclude Include="TestItmes\video_capture_device_mf_win.h" />
     <ClInclude Include="TestItmes\video_capture_device_win.h" />
   </ItemGroup>
   <ItemGroup>

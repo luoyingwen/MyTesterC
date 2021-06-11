@@ -50,6 +50,18 @@
     <ClCompile Include="TestItmes\filter_base_win.cc">
       <Filter>4-TestCategory\TestItems</Filter>
     </ClCompile>
+    <ClCompile Include="TestItmes\video_capture_device_mf_win.cc">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\dxgi_device_manager.cc">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\mf_helpers.cc">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItmes\mf_initializer.cc">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyTester.h">
@@ -80,6 +92,18 @@
       <Filter>4-TestCategory\TestItems</Filter>
     </ClInclude>
     <ClInclude Include="TestItmes\pin_base_win.h">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClInclude>
+    <ClInclude Include="TestItmes\video_capture_device_mf_win.h">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClInclude>
+    <ClInclude Include="TestItmes\dxgi_device_manager.h">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClInclude>
+    <ClInclude Include="TestItmes\mf_helpers.h">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClInclude>
+    <ClInclude Include="TestItmes\mf_initializer.h">
       <Filter>4-TestCategory\TestItems</Filter>
     </ClInclude>
   </ItemGroup>
