@@ -35,6 +35,9 @@
     <ClCompile Include="TestHttps.cpp">
       <Filter>4-TestCategory\TestItems</Filter>
     </ClCompile>
+    <ClCompile Include="webcamera.c">
+      <Filter>4-TestCategory\TestItems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyTester.h">

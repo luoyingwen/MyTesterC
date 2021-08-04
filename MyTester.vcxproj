@@ -546,6 +546,7 @@
     <ClCompile Include="TestCaseContainer.cpp" />
     <ClCompile Include="TestTemplate.cpp" />
     <ClCompile Include="TestHttps.cpp" />
+    <ClCompile Include="webcamera.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyTester.h" />

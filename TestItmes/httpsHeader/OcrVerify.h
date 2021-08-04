@@ -13,20 +13,6 @@ std::wstring utf82wstr(const char* utf8str)
     return szBuf;
 }
 
-
-bool HasValidAccessRight()
-{
-    if (s_tokenStatus == Success_State)
-    {
-        return true;
-    }
-    else
-    {
-        ::OutputDebugStringW(L"Has no access right");
-        return false;
-    }
-}
-
 void LogErrorMessage(const TCHAR* _Format, ...)
 {
     if (_Format == NULL)
@@ -87,6 +73,18 @@ bool QueryHardwareId(CString& value)
         value);
 }
 
+bool HasValidAccessRight()
+{
+    if (s_tokenStatus == Success_State)
+    {
+        return true;
+    }
+    else
+    {
+        ::OutputDebugStringW(L"Has no access right");
+        return false;
+    }
+}
 
 bool RequestAccessRight(const char* ak, const char* sk)
 {
@@ -95,7 +93,7 @@ bool RequestAccessRight(const char* ak, const char* sk)
     if (!QuerySystemModel(systemModel))
         return false;
 
-    systemModel = L"com.lenovotab.camera"; //TODO:  test only
+    systemModel = L"com.lenovotab.camera"; //TODO:  test only remove this line
     if (!QueryHardwareId(hardwareId))
         hardwareId = "unknown_hardwareId";
 
