@@ -551,7 +551,9 @@
     <ClCompile Include="TestItmes\mf_initializer.cc" />
     <ClCompile Include="TestItmes\pin_base_win.cc" />
     <ClCompile Include="TestItmes\sink_input_pin_win.cc" />
-    <ClCompile Include="TestItmes\video_capture_device_mf_win.cc" />
+    <ClCompile Include="TestItmes\video_capture_device_mf_win.cc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="TestItmes\video_capture_device_win.cc">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
     </ClCompile>
