@@ -88,49 +88,99 @@ bool QueryHardwareId(CString& value)
 }
 
 
+std::string wchar2utf8(const wchar_t* str)
+{
+    static const int MAXLEN = 2 * 1024;
+    char szBuf[MAXLEN] = { 0 };
+    WideCharToMultiByte(CP_UTF8, 0, str, wcslen(str), szBuf, MAXLEN, NULL, NULL);
+    return szBuf;
+}
+
+int ParseHex(wchar_t one)
+{
+    if (one >= '0' && one <= '9')
+    {
+        return one - '0';
+    }
+    else if (one >= 'a' && one <= 'f')
+    {
+        return one - 'a' + 10;
+    }
+    else
+    {
+        assert(0);
+        return 0;
+    }
+}
+
+std::wstring hexstring2whar(std::wstring& original)
+{
+    wstring result;
+    int length = original.length();
+    bool lastCharIsUnicode = false;
+    const wchar_t* strRaw = original.c_str();
+    for (int i = 0; i < length; i++)
+    {
+        if (strRaw[i] == '"' 
+            && i + 7 < length
+            && strRaw[i + 1] == '\\'
+            && strRaw[i + 2] == 'u'
+            && (strRaw[i + 7] == '"' || strRaw[i + 7] == '\\')
+            )
+        {
+            int part1 = ParseHex(strRaw[i + 3]);
+            int part2 = ParseHex(strRaw[i + 4]);
+            int part3 = ParseHex(strRaw[i + 5]);
+            int part4 = ParseHex(strRaw[i + 6]);
+            i += 6;
+            result.append(1, '"');
+            //add unicode char
+            wchar_t target = part1 * 4096 + part2 * 256 + part3 * 16 + part4;
+            result.append(1, target);
+            lastCharIsUnicode = true;
+        }
+        else if (lastCharIsUnicode
+            && i + 6 < length
+            && strRaw[i] == '\\'
+            && strRaw[i + 1] == 'u'
+            && (strRaw[i + 6] == '"' || strRaw[i + 6] == '\\')
+            )
+        {
+            int part1 = ParseHex(strRaw[i + 2]);
+            int part2 = ParseHex(strRaw[i + 3]);
+            int part3 = ParseHex(strRaw[i + 4]);
+            int part4 = ParseHex(strRaw[i + 5]);
+            i += 5;
+            //add unicode char
+            wchar_t target = part1 * 4096 + part2 * 256 + part3 * 16 + part4;
+            result.append(1, target);
+            lastCharIsUnicode = true;
+        }
+        else
+        {
+            result.append(1, strRaw[i]);
+            lastCharIsUnicode = false;
+        }
+    }
+    assert(result.length() > 0);
+    return result;
+}
+
 bool RequestAccessRight(const char* ak, const char* sk)
 {
-    CString systemModel;
-    CString hardwareId;
-    if (!QuerySystemModel(systemModel))
-        return false;
-
-    systemModel = L"com.lenovotab.camera"; //TODO:  test only
-    if (!QueryHardwareId(hardwareId))
-        hardwareId = "unknown_hardwareId";
-
-    const wchar_t* szPackageName = systemModel;
-    if (szPackageName == nullptr || wcslen(szPackageName) > MAX_PATH)
-    {
-        ::OutputDebugStringW(L"Invalid system model");
-        return false;
-    }
-
-    if (ak == nullptr || strlen(ak) > MAX_PATH || sk == nullptr || strlen(sk) > MAX_PATH)
-    {
-        ::OutputDebugStringW(L"Invalid ak & sk");
-        return false;
-    }
-
-    WinHttpClient postClient(L"https://ocr.lenovo.com/authorization/oauth2/token");
+    WinHttpClient postClient(L"https://nlp-test.xue.lenovo.com.cn/nlp-tools");
 
     // Post data.
-    string data = "grant_type=client_credentials";
-    data.append("&client_id=");
-    data.append(ak);
-    data.append("&client_secret=");
-    data.append(sk);
+    wchar_t* teststr = L"总有人间一两风";
+    char* testchar = (char*)teststr;
+    wchar_t* content = L"{ \"type\":\"fine\",\"sentence\" : \"总有人间一两风，填我人十万八千梦\" }";
+
+    string data = wchar2utf8(content);
     postClient.SetAdditionalDataToSend((BYTE*)data.c_str(), data.size());
 
     // Post headers.
     wstring headers;
-    headers.append(L"smartcamera-app-id:");
-    headers.append(szPackageName);
-    headers.append(L"\r\n");
-    headers.append(L"smartcamera-device-id:");
-    headers.append(hardwareId);
-    headers.append(L"\r\n");
-    headers.append(L"Content-Type: application/x-www-form-urlencoded\r\n");
+    headers.append(L"Content-Type: application/json; charset=UTF-8\r\n");
     headers.append(L"Content-Length: %d\r\n");
     wchar_t szHeaders[MAX_PATH * 10] = L"";
     swprintf_s(szHeaders, MAX_PATH * 10, headers.c_str(), data.size());
@@ -142,6 +192,11 @@ bool RequestAccessRight(const char* ak, const char* sk)
     }
     wstring httpResponseHeader = postClient.GetResponseHeader();
     wstring httpResponseContent = postClient.GetResponseContent();
+    ::OutputDebugStringW(httpResponseContent.c_str());
+    
+    wstring newResponse = hexstring2whar(httpResponseContent);
+    ::OutputDebugStringW(newResponse.c_str());
+
     const size_t pos = httpResponseContent.find(L"access_token");
     if (pos != std::string::npos)
     {

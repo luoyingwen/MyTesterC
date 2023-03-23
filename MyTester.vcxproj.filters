@@ -50,15 +50,6 @@
     <ClCompile Include="TestItmes\filter_base_win.cc">
       <Filter>4-TestCategory\TestItems</Filter>
     </ClCompile>
-    <ClCompile Include="TestItmes\video_capture_device_mf_win.cc">
-      <Filter>4-TestCategory\TestItems</Filter>
-    </ClCompile>
-    <ClCompile Include="TestItmes\dxgi_device_manager.cc">
-      <Filter>4-TestCategory\TestItems</Filter>
-    </ClCompile>
-    <ClCompile Include="TestItmes\mf_helpers.cc">
-      <Filter>4-TestCategory\TestItems</Filter>
-    </ClCompile>
     <ClCompile Include="TestItmes\mf_initializer.cc">
       <Filter>4-TestCategory\TestItems</Filter>
     </ClCompile>
